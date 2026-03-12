@@ -1,0 +1,31 @@
+name: Build Portable EXE
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4 # Updated to v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5 # Updated to v5 (latest stable)
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+        # openpyxl is needed for pandas to write the updated Excel file
+      run: |
+        pip install pandas openpyxl pymupdf pyinstaller
+
+    - name: Build EXE
+      run: |
+        pyinstaller --onefile --noconsole --name "Audit_Master_Pro" auditor_pro_v2.py
+
+    - name: Upload EXE
+      uses: actions/upload-artifact@v4 # Updated to v4 as per 2025/2026 requirements
+      with:
+        name: Audit-Tool-Windows
+        path: dist/Audit_Master_Pro.exe
+        retention-days: 5 # Optional: keeps the file for 5 days
