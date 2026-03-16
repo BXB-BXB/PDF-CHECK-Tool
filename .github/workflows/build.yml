@@ -21,7 +21,7 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile --noconsole --name "Audit_Master_Pro" auditor_pro_v5.py
+        pyinstaller --onefile --noconsole --name "Audit_Master_Pro" auditor_pro_v7.py
 
     - name: Upload EXE
       uses: actions/upload-artifact@v4 # Updated to v4 as per 2025/2026 requirements
