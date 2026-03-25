@@ -1,0 +1,27 @@
+name: Build BOM Validator 2026
+on: [push] # Se declanșează la fiecare push
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Requirements
+        run: |
+          pip install pymupdf pandas openpyxl pyinstaller
+
+      - name: Create EXE
+        run: |
+          pyinstaller --noconsole --onefile --version-file=version_info.txt --name="Audit_Master_Pro_BXB" main.py
+
+      - name: Save Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Audit_Master_Pro_BXB
+          path: dist/Audit_Master_Pro_BXB.exe
