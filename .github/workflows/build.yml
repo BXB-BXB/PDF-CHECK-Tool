@@ -21,11 +21,11 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile --noconsole --name "Audit_Master_Pro" auditor_pro_v9.py
+        pyinstaller --onefile --noconsole --name "Audit_Master_Pro" auditor_pro_v10.py
 
     - name: Upload EXE
       uses: actions/upload-artifact@v4 # Updated to v4 as per 2025/2026 requirements
       with:
         name: Audit-Tool-Windows
-        path: dist/Audit_Master_Pro.exe
+        path: dist/Audit_Master_Pro_BXB.exe
         retention-days: 5 # Optional: keeps the file for 5 days
