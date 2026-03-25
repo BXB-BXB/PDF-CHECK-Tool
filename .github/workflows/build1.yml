@@ -25,7 +25,7 @@ jobs:
         # Folosim filtrul auditor*.py ca sa prinda v11, v12, v13 etc.
         # Numele final al EXE-ului ramane fix ca sa stie toata lumea cine e "seful"
         run: |
-          pyinstaller --noconsole --onefile --version-file="version_info.txt" --name="Audit_Master_Pro_BXB" auditor*.py
+          pyinstaller --noconsole --onefile --version-file="version_info.txt" --name="Audit_Master_Pro_BXB" auditor_pro_v11.py
 
       - name: 6. Salvare si Livrare EXE
         uses: actions/upload-artifact@v4
