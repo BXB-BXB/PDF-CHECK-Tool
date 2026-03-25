@@ -21,7 +21,7 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile --noconsole --name "Audit_Master_Pro_BXB" auditor_pro_v10.py
+        pyinstaller --onefile --noconsole --name "Audit_Master_Pro_BXB" auditor_pro_v11.py
 
     - name: Upload EXE
       uses: actions/upload-artifact@v4 
