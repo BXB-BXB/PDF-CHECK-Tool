@@ -21,10 +21,10 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile --noconsole --name "Audit_Master_Pro" auditor_pro_v10.py
+        pyinstaller --onefile --noconsole --name "Audit_Master_Pro_BXB" auditor_pro_v10.py
 
     - name: Upload EXE
-      uses: actions/upload-artifact@v4 # Updated to v4 as per 2025/2026 requirements
+      uses: actions/upload-artifact@v4 
       with:
         name: Audit-Tool-Windows
         path: dist/Audit_Master_Pro_BXB.exe
